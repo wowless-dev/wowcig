@@ -14,6 +14,6 @@ python3 -m pip install hererocks
 hererocks -l 5.1 -r 3.5.0 /usr/local
 luarocks install wowcig
 mkdir logs mount
-ln -s mount/cache
-ln -s mount/extracts
-ln -s $PWD/mount/luadbd /root/.cache/luadbd
+ln -s mount/cache .
+ln -s mount/extracts .
+ln -s "$PWD/mount/luadbd" /root/.cache/luadbd
