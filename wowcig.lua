@@ -7,5 +7,5 @@ if type(args.db2) == "table" then
 elseif type(args.db2) == "string" then
   dbargs = " -d " .. args.db2
 end
-os.execute("env HOME=/root /usr/local/bin/wowcig -z -v -p " .. product .. dbargs)
+os.execute("env HOME=/root /usr/local/bin/wowcig -z -v -c '' -p " .. product .. dbargs)
 ngx.say("Successfully extracted " .. product .. ". Have a nice day.")
