@@ -12,7 +12,7 @@ apt-get install -y gcsfuse libzip-dev openresty tini
 apt-get clean
 python3 -m pip install hererocks
 hererocks -l 5.1 -r 3.5.0 /usr/local
-luarocks install wowcig
+luarocks install wowcig 0.12.5
 mkdir logs mount
 ln -s mount/cache .
 ln -s mount/extracts .
