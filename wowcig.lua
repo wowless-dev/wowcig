@@ -6,7 +6,7 @@ local cmd = {
   '/usr/local/bin/wowcig',
   '-z',
   '-c',
-  '',
+  '\'\'',
   '-p',
   assert(args.product, 'missing product'),
 }
