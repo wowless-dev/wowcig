@@ -1,11 +1,22 @@
-local ngx = require("ngx")
+local ngx = require('ngx')
 local args = ngx.req.get_uri_args()
-local product = assert(args.product, "missing product")
-local dbargs = ""
-if type(args.db2) == "table" then
-  dbargs = " -d " .. table.concat(args.db2, " -d ")
-elseif type(args.db2) == "string" then
-  dbargs = " -d " .. args.db2
+local cmd = {
+  'env',
+  'HOME=root',
+  '/usr/local/bin/wowcig',
+  '-z',
+  '-c',
+  '',
+  '-p',
+  assert(args.product, 'missing product'),
+}
+if args.verbose then
+  table.insert(cmd, '-v')
 end
-os.execute("env HOME=/root /usr/local/bin/wowcig -z -c '' -p " .. product .. dbargs)
-ngx.say("Successfully extracted " .. product .. ". Have a nice day.")
+if type(args.db2) == 'table' then
+  table.insert(cmd, '-d ' .. table.concat(args.db2, ' -d '))
+elseif type(args.db2) == 'string' then
+  table.insert(cmd, '-d ' .. args.db2)
+end
+os.execute(table.concat(cmd, ' '))
+ngx.say('Successfully extracted ' .. args.product .. '. Have a nice day.')
