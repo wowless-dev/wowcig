@@ -8,7 +8,7 @@ local cmd = {
   '-c',
   '\'\'',
   '-p',
-  assert(args.product, 'missing product'),
+  (assert(args.product, 'missing product')),
 }
 if args.verbose then
   table.insert(cmd, '-v')
