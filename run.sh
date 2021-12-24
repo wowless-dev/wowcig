@@ -1,3 +1,3 @@
 set -e
 gcsfuse --implicit-dirs wowless.dev mount
-/usr/local/openresty/nginx/sbin/nginx -p . -c nginx.conf
+(eval "$(luarocks path)" && lua wowcig.lua)
