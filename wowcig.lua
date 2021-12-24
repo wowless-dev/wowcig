@@ -1,5 +1,5 @@
 assert(require('http.server').listen({
-  host = 'localhost',
+  host = '0.0.0.0',
   port = 8080,
   onstream = (function()
     local new_headers = require('http.headers').new
