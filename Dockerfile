@@ -1,8 +1,8 @@
-FROM python:3.10-buster
+FROM google/cloud-sdk:slim
 WORKDIR /opt/wowcig
 
 COPY setup.sh ./
 RUN bash setup.sh
 
-COPY run.sh wowcig.lua ./
-ENTRYPOINT ["tini", "--", "bash", "run.sh"]
+COPY query.sh run.sh wowcig.lua ./
+ENTRYPOINT ["bash", "run.sh"]

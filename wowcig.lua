@@ -7,7 +7,7 @@ assert(require('http.server').listen({
     return function(_, s)
       local q = parse_url(s:get_headers():get(':path')).query
       local product = q.product
-      os.execute('env HOME=root /usr/local/bin/wowcig -z -v -c "" -d all -p ' .. product)
+      os.execute('/bin/bash query.sh ' ..  product)
       local h = new_headers()
       h:append(':status', '200')
       s:write_headers(h, false)
