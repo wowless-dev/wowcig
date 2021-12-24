@@ -7,3 +7,4 @@ hererocks -l 5.1 -r 3.5.0 /usr/local
 luarocks install wowcig 0.12.4
 luarocks install http
 luarocks install net-url
+mkdir -p extracts /root/.cache/luadbd
